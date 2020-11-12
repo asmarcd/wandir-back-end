@@ -1,0 +1,38 @@
+[
+    {
+      "model": "User",
+      "data": {
+        "username": "User1",
+        "password":"123456789",
+        "email":"user1@gmail.com"
+      }
+    },
+    {
+      "model": "User",
+      "data": {
+        "username": "User2",
+        "password":"1234567899",
+        "email":"user2@gmail.com"
+      }
+    },
+    {
+        "model": "Geo",
+        "data": {
+          "region": "seattle",
+          "place":"Green Lake",
+          "lat":47.680472,
+          "lng":-122.328172,
+          "UserId":1
+        }
+    },
+    {
+        "model": "Post",
+        "data": {
+          "title":"A lovely time in Seattle" ,
+          "date":"2020-11-12",
+          "body":"Bushwick yuccie gentrify YOLO. Deep v kombucha lumbersexual cloud bread migas lomo. Forage man bun kogi, yr adaptogen authentic banjo offal pinterest drinking vinegar. Lyft heirloom vape cronut chillwave photo booth. Typewriter portland tumblr, glossier stumptown flannel chicharrones thundercats drinking vinegar single-origin coffee disrupt lumbersexual. Fashion axe shaman tote bag knausgaard bespoke everyday carry master cleanse polaroid pop-up bitters mixtape quinoa hell of flannel.",
+          "UserId":1
+        }
+    }
+    
+  ]
