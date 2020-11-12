@@ -13,7 +13,7 @@ module.exports = function (sequelize, DataTypes) {
       Photo.belongsTo(models.Post)
     }
     Photo.assocaite = models =>{
-      Photo.belongsToMany(models.Geo)
+      Photo.belongsTo(models.Geo)
     }
     return Photo;
   };
