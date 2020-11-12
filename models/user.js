@@ -22,11 +22,9 @@ module.exports = function (sequelize, DataTypes) {
     },
   });
 
-  User.assocaite = models =>{
-    User.hasMany(models.Post)
-  }
-  User.assocaite = models =>{
+  User.associate = models =>{
     User.hasMany(models.Geo)
+    User.hasMany(models.Post)
   }
 
   User.beforeCreate(function (user) {

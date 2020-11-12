@@ -9,9 +9,9 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const APIroutes = require("./routes/API.js");
+const routes = require("./controllers/");
 // Add routes API
-app.use(APIroutes);
+app.use(routes);
 
 
 db.sequelize.sync({ force: true }).then(function() {
