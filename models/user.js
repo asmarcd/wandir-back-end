@@ -24,7 +24,7 @@ module.exports = function (sequelize, DataTypes) {
 
   User.associate = models =>{
     User.hasMany(models.Geo)
-    User.hasMany(models.Post)
+    User.hasMany(models.Entry)
   }
 
   User.beforeCreate(function (user) {

@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var Post = sequelize.define("Post", {
+    var Entry = sequelize.define("Entry", {
       title: {
         type: DataTypes.STRING,
         allowNull:false
@@ -15,9 +15,9 @@ module.exports = function (sequelize, DataTypes) {
     });
     
 
-    Post.associate = models =>{
-      Post.belongsToMany(models.Geo, {through: 'PostGeo'})
+    Entry.associate = models =>{
+      Entry.belongsToMany(models.Geo, {through: 'EntryGeo'})
     }
     
-    return Post;
+    return Entry;
   };
