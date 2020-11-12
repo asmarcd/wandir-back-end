@@ -18,12 +18,12 @@ router.get("/", (req,res) => {
 router.post("/", (req, res) => {
     db.User.create({
         email: req.body.email,
-        username: req.body.name,
+        username: req.body.username,
         password: req.body.password
     }).then(newUser => {
         res.json(newUser);
     }).catch(err => {
         console.log(err);
         res.status(500).end();
-    })
-})
+    });
+});
