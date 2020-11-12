@@ -8,5 +8,12 @@ module.exports = function (sequelize, DataTypes) {
         allowNull:false
       }
     });
+
+    Photo.assocaite = models =>{
+      Photo.belongsTo(models.Post)
+    }
+    Photo.assocaite = models =>{
+      Photo.belongsToMany(models.Geo)
+    }
     return Photo;
   };

@@ -13,5 +13,13 @@ module.exports = function (sequelize, DataTypes) {
       }
 
     });
+
+    Post.assocaite = models =>{
+      Post.belongsToMany(models.Geo, {through: 'PostGeo'})
+    }
+    
+    Post.assocaite = models =>{
+      Post.belongsToMany(models.Geo, {through: 'PostGeo'})
+    }
     return Post;
   };

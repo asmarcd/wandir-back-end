@@ -22,6 +22,13 @@ module.exports = function (sequelize, DataTypes) {
     },
   });
 
+  User.assocaite = models =>{
+    User.hasMany(models.Post)
+  }
+  User.assocaite = models =>{
+    User.hasMany(models.Geo)
+  }
+
   User.beforeCreate(function (user) {
     user.password = bcrypt.hashSync(
       user.password,
