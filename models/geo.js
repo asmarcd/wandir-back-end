@@ -16,5 +16,10 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
     },
   });
+  
+  Geo.associate = models =>{
+    Geo.belongsToMany(models.Post, {through: 'PostGeo'})
+  }
+
   return Geo;
 };

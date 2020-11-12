@@ -1,12 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const db = require('../models')
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken")
+// const bcrypt = require("bcrypt");
+// const jwt = require("jsonwebtoken")
 
 // User authentication goes here
 
 router.get("/", (req,res) => {
+    console.log("route hit")
     db.User.findAll().then(users => {
         res.json(users)
     }).catch(err => {
@@ -27,3 +28,5 @@ router.post("/", (req, res) => {
         res.status(500).end();
     });
 });
+
+module.exports = router

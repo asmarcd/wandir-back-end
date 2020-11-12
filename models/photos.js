@@ -8,5 +8,10 @@ module.exports = function (sequelize, DataTypes) {
         allowNull:false
       }
     });
+
+    Photo.associate = models =>{
+      Photo.belongsTo(models.Geo)
+      Photo.belongsTo(models.Post)
+    }
     return Photo;
   };
