@@ -1,1 +1,0 @@
-# journal-app-front-end
