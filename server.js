@@ -3,6 +3,7 @@ const express = require("express");
 const db = require("./models")
 const app = express();
 var path = require('path');
+const cors = require('cors')
 
 const PORT = process.env.PORT || 3001;
 
@@ -12,12 +13,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //PRODUCTION CORS
-app.use(cors({
-  origin:["https://augfishtank.herokuapp.com"]
-}))
+// app.use(cors({
+//   origin:["https://augfishtank.herokuapp.com"]
+// }))
 
 //DEV CORS
-// app.use(cors())
+app.use(cors())
 
 
 const routes = require("./controllers/");
