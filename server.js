@@ -10,6 +10,15 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+//PRODUCTION CORS
+app.use(cors({
+  origin:["https://augfishtank.herokuapp.com"]
+}))
+
+//DEV CORS
+// app.use(cors())
+
+
 const routes = require("./controllers/");
 // Add routes API
 app.use(routes);

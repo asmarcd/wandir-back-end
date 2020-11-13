@@ -7,14 +7,14 @@ const db = require("../models");
 // Get all geos
 router.get("/", (req, res) => {
   db.Geo.findAll({
-    include: [
-      {
-        model: db.Entry,
-      },
-      {
-        model: db.Photo,
-      },
-    ],
+    // include: [
+    //   {
+    //     model: db.Entry,
+    //   },
+    //   {
+    //     model: db.Photo,
+    //   },
+    // ],
   })
     .then((users) => {
       res.json(users);
