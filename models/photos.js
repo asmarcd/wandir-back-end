@@ -9,9 +9,9 @@ module.exports = function (sequelize, DataTypes) {
       }
     });
 
-    Photo.associate = models =>{
-      Photo.belongsTo(models.Geo)
-      Photo.belongsTo(models.Entry)
-    }
+    // Photo.associate = models =>{
+    //   // Photo.belongsTo(models.Geo)
+    //   // Photo.belongsTo(models.Entry)
+    // }
     return Photo;
   };
