@@ -19,7 +19,8 @@ router.post("/", (req, res) => {
         res.status(500).end();
     });
 });
-
+// Get a geo by id, include the entries and photos
+//this will be used when you have a point selected and want to see all associated content
 router.get("/:id", (req, res) => {
     db.Geo.findAll({
         where:{
@@ -38,5 +39,25 @@ router.get("/:id", (req, res) => {
         res.status(500).end();
     });
 });
+// update a point
+// not sure how this place out yet, ideally we can edit point nad move it
+router.put("/:id", (req, res)=>{
+    db.Geo.update(
+        {
+        region:req.body.region,
+        place:req.body.place,
+        lat:req.body.lat,
+        lng:req.body.long
+        },
+        {where:{id: req.params.id}}
+    )
+})
+router.delete("/:id", (req, res)=>{
+    db.Geo.destroy(
+        {where:{
+            id: req.params.id
+        }}
+    )
+})
 
 module.exports = router
