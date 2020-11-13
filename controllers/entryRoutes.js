@@ -80,7 +80,7 @@ router.get("/entrysearch", (req, res) => {
 });
 
 // Delete an entry
-router.Entry.delete("/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
     db.Entry.destroy({
         where: {
             id: req.params.id
