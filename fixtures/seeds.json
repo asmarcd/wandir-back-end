@@ -1,0 +1,142 @@
+[
+    {
+      "model": "User",
+      "data": {
+        "id":1,
+        "username": "User1",
+        "password":"123456789",
+        "email":"user1@gmail.com"
+      }
+    },
+    {
+      "model": "User",
+      "data": {
+        "id":2,
+        "username": "User2",
+        "password":"1234567899",
+        "email":"user2@gmail.com"
+      }
+    },
+    {
+        "model": "Geo",
+        "data": {
+          "id":1,
+          "region": "seattle",
+          "place":"Green Lake",
+          "lat":47.680472,
+          "lng":-122.328172,
+          "UserId":1,
+          "Entry":[1]
+        }
+    },
+    {
+      "model": "Geo",
+      "data": {
+        "id":2,
+        "region": "",
+        "place":"Reubens",
+        "lat":47.665405,
+        "lng":-122.373260,
+        "UserId":1,
+        "Entry":[1,2]
+      }
+    },
+    {
+      "model": "Geo",
+      "data": {
+        "id":3,
+        "region": "Seattle",
+        "place":"Descovery Park",
+        "lat":47.662902,
+        "lng":-122.414732,
+        "UserId":1,
+        "Entry":[1]
+      }
+    },
+    {
+      "model": "Geo",
+      "data": {
+        "id":4,
+        "region": "",
+        "place":"Golden Gardens",
+        "lat":47.691429,
+        "lng":-122.402447,
+        "UserId":1,
+        "Entry":[2]
+      }
+    },
+    {
+        "model": "Entry",
+        "data": {
+          "id":1,
+          "title":"A lovely time in Seattle" ,
+          "date":"2020-11-12",
+          "body":"Bushwick yuccie gentrify YOLO. Deep v kombucha lumbersexual cloud bread migas lomo. Forage man bun kogi, yr adaptogen authentic banjo offal pinterest drinking vinegar. Lyft heirloom vape cronut chillwave photo booth. Typewriter portland tumblr, glossier stumptown flannel chicharrones thundercats drinking vinegar single-origin coffee disrupt lumbersexual. Fashion axe shaman tote bag knausgaard bespoke everyday carry master cleanse polaroid pop-up bitters mixtape quinoa hell of flannel.",
+          "UserId":1,
+          "Geo":[1,2,3]
+        }
+    },
+    {
+      "model": "Entry",
+      "data": {
+        "id":2,
+        "title":"Freaking out in Ballard" ,
+        "date":"2020-10-06",
+        "body":"Trust fund intelligentsia four dollar toast gastropub chia wolf venmo migas. Lomo small batch snackwave chicharrones deep v. Air plant master cleanse swag keytar trust fund sartorial portland vinyl bicycle rights cray chia mixtape chartreuse readymade. Lo-fi wolf poutine humblebrag XOXO, YOLO fashion axe banjo salvia brooklyn gastropub activated charcoal mlkshk quinoa.",
+        "UserId":1,
+        "Geo":[2,4]
+      }
+  },
+  {
+    "model": "Photo",
+    "data": {
+      "id":1,
+      "name":"Flowers" ,
+      "url":"https://res.cloudinary.com/k3m9/image/upload/v1603163484/sample.jpg",
+      "GeoId":1,
+      "EntryId":1
+    }
+},
+{
+  "model": "Photo",
+  "data": {
+    "id":2,
+    "name":"" ,
+    "url":"https://res.cloudinary.com/k3m9/image/upload/v1603475786/s6oxnoo1n8i2hjsr0iso.jpg",
+    "GeoId":2,
+    "EntryId":1
+  }
+},
+{
+  "model": "Photo",
+  "data": {
+    "id":3,
+    "name":"" ,
+    "url":"https://res.cloudinary.com/k3m9/image/upload/v1603484667/mvoupf0klxy7lhrq4fkn.png",
+    "GeoId":3,
+    "EntryId":1
+  }
+},
+{
+  "model": "Photo",
+  "data": {
+    "id":4,
+    "name":"" ,
+    "url":"https://res.cloudinary.com/k3m9/image/upload/v1603817477/pffrv7ik1j31p1ddil4u.jpg",
+    "GeoId":4,
+    "EntryId":2
+
+  }
+},
+{
+  "model": "Photo",
+  "data": {
+    "id":5,
+    "name":"boi" ,
+    "url":"https://res.cloudinary.com/k3m9/image/upload/v1603746074/dhrkzjtfht8pffvnfnpf.jpg",
+    "GeoId":4,
+    "EntryId":2
+  }
+}
+    
+  ]

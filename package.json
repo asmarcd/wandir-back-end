@@ -4,16 +4,19 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
-    "bcrypt": "^5.0.0",
     "axios": "^0.21.0",
+    "bcrypt": "^5.0.0",
     "express": "^4.17.1",
+    "fixtures": "0.0.2",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "sequelize-fixtures": "^1.2.0"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node fixtures/seedDB.js"
   },
   "repository": {
     "type": "git",
