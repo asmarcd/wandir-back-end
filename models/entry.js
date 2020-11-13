@@ -17,6 +17,7 @@ module.exports = function (sequelize, DataTypes) {
 
     Entry.associate = models =>{
       Entry.belongsToMany(models.Geo, {through: 'EntryGeo'})
+      Entry.hasMany(models.Photo)
     }
     
     return Entry;

@@ -20,4 +20,23 @@ router.post("/", (req, res) => {
     });
 });
 
+router.get("/:id", (req, res) => {
+    db.Geo.findAll({
+        where:{
+            id:parseInt(req.params.id)
+        },
+        include: [{
+            model: db.Entry,
+            model:db.Photo
+        }
+    ]
+
+    }).then(result => {
+        res.json(result);
+    }).catch(err => {
+        console.log(err);
+        res.status(500).end();
+    });
+});
+
 module.exports = router
