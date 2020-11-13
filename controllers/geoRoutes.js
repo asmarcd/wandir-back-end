@@ -33,8 +33,8 @@ router.post("/", (req, res) => {
     lat: req.body.lat,
     lng: req.body.lng,
   })
-    .then((newEntry) => {
-      res.json(newEntry);
+    .then((newGeo) => {
+      res.json(newGeo);
     })
     .catch((err) => {
       console.log(err);
@@ -80,11 +80,16 @@ router.put("/:id", (req, res) => {
     { where: { id: req.params.id } }
   );
 });
+
 router.delete("/:id", (req, res) => {
   db.Geo.destroy({
     where: {
       id: req.params.id,
     },
+  }).then(res.status(200).send("delete successful"))
+  .catch((err) => {
+    console.log(err);
+    res.status(500).end();
   });
 });
 
