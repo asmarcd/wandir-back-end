@@ -25,7 +25,7 @@ router.get("/", (req, res) => {
     });
 });
 
-// Create new Entry
+// Create new Geo
 router.post("/", (req, res) => {
   db.Geo.create({
     region: req.body.region,
@@ -93,7 +93,7 @@ router.delete("/:id", (req, res) => {
   });
 });
 
-// adding a post to a geo point
+// adding an entry to a geo point
 // not sure if we will use this one, since we are going to be adding the geotags inside the post...
 router.get("/addentry/:geoid/:entryid", (req, res) => {
   db.Geo.findOne({
