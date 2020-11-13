@@ -51,8 +51,8 @@ router.get("/:id", (req,res) => {
     }
     ).then(user => {
         const responseObj = {
-            geos: user.Geos,
-            entries:user.Entries
+            geo: user.Geos,
+            entry:user.Entries
         }
         res.json(responseObj)
     }).catch(err => {
