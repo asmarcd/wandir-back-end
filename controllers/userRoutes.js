@@ -5,6 +5,24 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 // User authentication goes here
+const checkAuthStatus = request => {
+    console.log("checking")
+    if (!request.headers.authorization) {
+        return false
+    }
+    
+    const token = request.headers.authorization
+    console.log(token);
+    const loggedInUser = jwt.verify(token, process.env.JWT_SECRET, (err, data) => {
+        if (err) {
+            return false
+        }
+        else {
+            return data
+        }
+    });
+    return loggedInUser
+}
 
 router.get("/", (req,res) => {
     db.User.findAll().then(users => {
@@ -75,27 +93,14 @@ router.post("/login", (req, res) => {
     })
 })
 
-// router.get("/checkauth", (req, res) => {
-//     const loggedInUser = checkAuthStatus(req);
-//     console.log(loggedInUser);
-//     if (!loggedInUser) {
-//         return res.status(401).send("invalid token")
-//     }
-//     db.User.findOne({
-//         where:{
-//             id:loggedInUser.id
-//         },
-//         include :[{
-//             model:db.Tank,
-//             include:[db.Fish]
-//         }]
-//     }).then(dbUser=>{
-//         res.json(dbUser)
-//     }).catch(err=>{
-//         console.log(err);
-//         res.status(500).send("an error occured please try again later");
-//     })
-
-// })
+router.get("/check/auth", (req, res) => {
+    console.log("route Hit")
+    const loggedInUser = checkAuthStatus(req);
+    console.log(loggedInUser);
+    if (!loggedInUser) {
+        return res.status(401).send("invalid token")
+    }
+    res.json(loggedInUser)
+})
 
 module.exports = router
