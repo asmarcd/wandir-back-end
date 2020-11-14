@@ -34,7 +34,7 @@ router.get("/", (req,res) => {
 });
 
 router.get("/:id", (req,res) => {
-    db.User.findAll({
+    db.User.findOne({
         where:{
             id:req.params.id
         },
@@ -49,8 +49,12 @@ router.get("/:id", (req,res) => {
             },
           ],
     }
-    ).then(users => {
-        res.json(users)
+    ).then(user => {
+        const responseObj = {
+            geo: user.Geos,
+            entry:user.Entries
+        }
+        res.json(responseObj)
     }).catch(err => {
         console.log(err);
         res.status(500).end();
