@@ -24,7 +24,8 @@ router.post("/", (req, res) => {
     db.Entry.create({
         title: req.body.title,
         date: req.body.date,
-        body: req.body.body
+        body: req.body.body,
+        UserId:req.body.UserId
     }).then(newEntry => {
         res.json(newEntry);
     }).catch(err => {
