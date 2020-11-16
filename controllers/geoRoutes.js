@@ -71,15 +71,20 @@ router.get("/:id", (req, res) => {
 // update a point
 // not sure how this place out yet, ideally we can edit point nad move it
 router.put("/:id", (req, res) => {
+  console.log(req.body)
   db.Geo.update(
     {
       region: req.body.region,
       place: req.body.place,
       lat: req.body.lat,
-      lng: req.body.long,
+      lng: req.body.lng,
     },
     { where: { id: req.params.id } }
-  );
+  ).then(res.status(200).send("update successful"))
+  .catch((err) => {
+    console.log(err);
+    res.status(500).end();
+  });
 });
 
 router.delete("/:id", (req, res) => {
