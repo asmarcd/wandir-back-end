@@ -24,7 +24,8 @@ router.post("/", (req, res) => {
     db.Entry.create({
         title: req.body.title,
         date: req.body.date,
-        body: req.body.body
+        body: req.body.body,
+        UserId:req.body.UserId
     }).then(newEntry => {
         res.json(newEntry);
     }).catch(err => {
@@ -91,5 +92,24 @@ router.delete("/:id", (req, res) => {
             res.status(500).end();
         });
 });
+// route for adding a relation between entry and geos
+// geos come in the body as an array of ids, figure we'll mostly be doing several at a time most times
+router.put("/addpoint/:id", (req, res) => {
+    db.Entry.findOne({
+      where: {
+        id: req.params.id,
+      },
+    })
+      .then((entry) => {
+        req.body.forEach(e => {
+            entry.addGeo(e);
+        });
+        res.send("Association Added");
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).end();
+      });
+  });
 
 module.exports = router
