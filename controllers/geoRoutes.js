@@ -32,6 +32,7 @@ router.post("/", (req, res) => {
     place: req.body.place,
     lat: req.body.lat,
     lng: req.body.lng,
+    UserId:req.body.UserId
   })
     .then((newGeo) => {
       res.json(newGeo);
