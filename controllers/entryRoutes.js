@@ -92,7 +92,8 @@ router.delete("/:id", (req, res) => {
             res.status(500).end();
         });
 });
-
+// route for adding a relation between entry and geos
+// geos come in the body as an array of ids, figure we'll mostly be doing several at a time most times
 router.put("/addpoint/:id", (req, res) => {
     db.Entry.findOne({
       where: {
