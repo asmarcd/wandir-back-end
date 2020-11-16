@@ -93,4 +93,22 @@ router.delete("/:id", (req, res) => {
         });
 });
 
+router.put("/addpoint/:id", (req, res) => {
+    db.Entry.findOne({
+      where: {
+        id: req.params.id,
+      },
+    })
+      .then((entry) => {
+        req.body.forEach(e => {
+            entry.addGeo(e);
+        });
+        res.send("Association Added");
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).end();
+      });
+  });
+
 module.exports = router
