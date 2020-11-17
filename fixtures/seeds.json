@@ -94,7 +94,8 @@
       "name":"Flowers" ,
       "url":"https://res.cloudinary.com/k3m9/image/upload/v1603163484/sample.jpg",
       "GeoId":1,
-      "EntryId":1
+      "EntryId":1,
+      "UserId": 1
     }
 },
 {
@@ -104,7 +105,8 @@
     "name":"" ,
     "url":"https://res.cloudinary.com/k3m9/image/upload/v1603475786/s6oxnoo1n8i2hjsr0iso.jpg",
     "GeoId":2,
-    "EntryId":1
+    "EntryId":1,
+    "UserId": 1
   }
 },
 {
@@ -114,7 +116,8 @@
     "name":"" ,
     "url":"https://res.cloudinary.com/k3m9/image/upload/v1603484667/mvoupf0klxy7lhrq4fkn.png",
     "GeoId":3,
-    "EntryId":1
+    "EntryId":1,
+    "UserId": 1
   }
 },
 {
@@ -124,7 +127,8 @@
     "name":"" ,
     "url":"https://res.cloudinary.com/k3m9/image/upload/v1603817477/pffrv7ik1j31p1ddil4u.jpg",
     "GeoId":4,
-    "EntryId":2
+    "EntryId":2,
+    "UserId": 1
 
   }
 },
@@ -135,7 +139,8 @@
     "name":"boi" ,
     "url":"https://res.cloudinary.com/k3m9/image/upload/v1603746074/dhrkzjtfht8pffvnfnpf.jpg",
     "GeoId":4,
-    "EntryId":2
+    "EntryId":2,
+    "UserId": 1
   }
 }
     

@@ -41,18 +41,20 @@ router.get("/:id", (req,res) => {
         include: [
             {
               model: db.Entry,
-              include:[{model:db.Photo}]
             },
             {
               model: db.Geo,
-              include:[{model:db.Photo}]
             },
+            {
+                model: db.Photo,
+              },
           ],
     }
     ).then(user => {
         const responseObj = {
             geo: user.Geos,
-            entry:user.Entries
+            entry:user.Entries,
+            photo:user.Photos
         }
         res.json(responseObj)
     }).catch(err => {
