@@ -6,12 +6,12 @@ const jwt = require("jsonwebtoken");
 
 // User authentication goes here
 const checkAuthStatus = request => {
-    console.log("checking")
+    console.log("checking that token")
     if (!request.headers.authorization) {
         return false
     }
     
-    const token = request.headers.authorization
+    const token = request.headers.authorization.split(" ")[1]
     console.log(token);
     const loggedInUser = jwt.verify(token, process.env.JWT_SECRET, (err, data) => {
         if (err) {
@@ -24,14 +24,14 @@ const checkAuthStatus = request => {
     return loggedInUser
 }
 
-router.get("/", (req,res) => {
-    db.User.findAll().then(users => {
-        res.json(users)
-    }).catch(err => {
-        console.log(err);
-        res.status(500).end();
-    });
-});
+// router.get("/", (req,res) => {
+//     db.User.findAll().then(users => {
+//         res.json(users)
+//     }).catch(err => {
+//         console.log(err);
+//         res.status(500).end();
+//     });
+// });
 
 router.get("/:id", (req,res) => {
     db.User.findOne({
@@ -100,7 +100,7 @@ router.post("/login", (req, res) => {
 })
 
 router.get("/check/auth", (req, res) => {
-    console.log("route Hit")
+    console.log("route Hit for auth")
     const loggedInUser = checkAuthStatus(req);
     console.log(loggedInUser);
     if (!loggedInUser) {
