@@ -77,6 +77,7 @@ router.post("/", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
+    console.log(req.body.email)
     db.User.findOne({
         where: {
             email: req.body.email,
@@ -92,6 +93,7 @@ router.post("/login", (req, res) => {
                 username: foundUser.username
             }
             const token = jwt.sign(userTokenInfo, process.env.JWT_SECRET, { expiresIn: "2h" });
+            console.log(token)
             return res.status(200).json({ token: token })
         } else {
             return res.status(403).send("username or password incorrect")
