@@ -25,17 +25,6 @@ const checkAuthStatus = request => {
     return loggedInUser
 }
 
-<<<<<<< HEAD
-router.get("/", (req,res) => {
-    
-    db.User.findAll().then(users => {
-        res.json(users)
-    }).catch(err => {
-        console.log(err);
-        res.status(500).end();
-    });
-});
-=======
 // router.get("/", (req,res) => {
 //     db.User.findAll().then(users => {
 //         res.json(users)
@@ -44,7 +33,6 @@ router.get("/", (req,res) => {
 //         res.status(500).end();
 //     });
 // });
->>>>>>> dev
 
 router.get("/:id", (req,res) => {
     
@@ -91,11 +79,7 @@ router.post("/", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
-<<<<<<< HEAD
-    console.log(req.body)
-=======
-    console.log(req.body.email)
->>>>>>> dev
+    
     db.User.findOne({
         where: {
             email: req.body.email,
