@@ -7,12 +7,12 @@ const { request } = require("express");
 
 // User authentication goes here
 const checkAuthStatus = request => {
-    console.log("checking")
+    console.log("checking that token")
     if (!request.headers.authorization) {
         return false
     }
     
-    const token = request.headers.authorization
+    const token = request.headers.authorization.split(" ")[1]
     console.log(token);
     const loggedInUser = jwt.verify(token, process.env.JWT_SECRET, (err, data) => {
         if (err) {
@@ -25,6 +25,7 @@ const checkAuthStatus = request => {
     return loggedInUser
 }
 
+<<<<<<< HEAD
 router.get("/", (req,res) => {
     
     db.User.findAll().then(users => {
@@ -34,6 +35,16 @@ router.get("/", (req,res) => {
         res.status(500).end();
     });
 });
+=======
+// router.get("/", (req,res) => {
+//     db.User.findAll().then(users => {
+//         res.json(users)
+//     }).catch(err => {
+//         console.log(err);
+//         res.status(500).end();
+//     });
+// });
+>>>>>>> dev
 
 router.get("/:id", (req,res) => {
     
@@ -80,7 +91,11 @@ router.post("/", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
+<<<<<<< HEAD
     console.log(req.body)
+=======
+    console.log(req.body.email)
+>>>>>>> dev
     db.User.findOne({
         where: {
             email: req.body.email,
@@ -96,6 +111,7 @@ router.post("/login", (req, res) => {
                 username: foundUser.username
             }
             const token = jwt.sign(userTokenInfo, process.env.JWT_SECRET, { expiresIn: "2h" });
+            console.log(token)
             return res.status(200).json({ token: token })
         } else {
             return res.status(403).send("username or password incorrect")
@@ -104,7 +120,7 @@ router.post("/login", (req, res) => {
 })
 
 router.get("/check/auth", (req, res) => {
-    console.log("route Hit")
+    console.log("route Hit for auth")
     const loggedInUser = checkAuthStatus(req);
     console.log(loggedInUser);
     if (!loggedInUser) {
