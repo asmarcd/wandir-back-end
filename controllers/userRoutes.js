@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require('../models');
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const { request } = require("express");
 
 // User authentication goes here
 const checkAuthStatus = request => {
@@ -24,6 +25,17 @@ const checkAuthStatus = request => {
     return loggedInUser
 }
 
+<<<<<<< HEAD
+router.get("/", (req,res) => {
+    
+    db.User.findAll().then(users => {
+        res.json(users)
+    }).catch(err => {
+        console.log(err);
+        res.status(500).end();
+    });
+});
+=======
 // router.get("/", (req,res) => {
 //     db.User.findAll().then(users => {
 //         res.json(users)
@@ -32,8 +44,10 @@ const checkAuthStatus = request => {
 //         res.status(500).end();
 //     });
 // });
+>>>>>>> dev
 
 router.get("/:id", (req,res) => {
+    
     db.User.findOne({
         where:{
             id:req.params.id
@@ -77,7 +91,11 @@ router.post("/", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
+<<<<<<< HEAD
+    console.log(req.body)
+=======
     console.log(req.body.email)
+>>>>>>> dev
     db.User.findOne({
         where: {
             email: req.body.email,
