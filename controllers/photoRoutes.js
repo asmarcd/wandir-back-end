@@ -20,7 +20,8 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) =>{
     db.Photo.create({
         name: req.body.name,
-        url:req.body.url
+        url:req.body.url,
+        UserId:req.body.userid
     }).then(newPhoto =>{
         res.json(newPhoto)
     }).catch(err =>{
@@ -44,6 +45,8 @@ router.delete("/:id", (req, res) =>{
 //add associations between a photo and either geo or entry
 // this method is not destructive so it only updates what you pass it, allowing to update geo or entry individually
 router.put("/:id" , (req, res) =>{
+    console.log("==========================================================")
+    console.log(req.body)
     db.Photo.update({
         GeoId: req.body.geoid,
         EntryId: req.body.entryid
