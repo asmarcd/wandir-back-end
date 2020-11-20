@@ -51,6 +51,7 @@ router.get("/:id", (req,res) => {
                 model: db.Photo,
               },
           ],
+          order: [[db.Entry, "date", "DESC"]]
     }
     ).then(user => {
         const responseObj = {
