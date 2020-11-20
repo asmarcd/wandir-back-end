@@ -61,7 +61,7 @@ router.put("/:id", (req, res) => {
             body: req.body.body
         },
         { where: { id: req.params.id } }
-    );
+    ).then(result => res.json(result));
 });
 
 // Route for search - title of entry contains user input for search
